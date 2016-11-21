@@ -1,12 +1,14 @@
 FROM centos:latest
 MAINTAINER "zhoujun" <dev.zhoujun@gmail.com>
 
-RUN yum install -y vim git
+RUN yum install -y vim git make
 
-RUN yum install -y golang
+RUN yum install -y golang \
+    && mkdir -p /data/go
+
 ENV GOROOT /usr/lib/golang
 ENV PATH $GOPATH/bin:PATH
-ENV GOPATH /data
+ENV GOPATH /data/go
 
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
