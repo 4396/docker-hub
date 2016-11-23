@@ -10,6 +10,7 @@ ENV PATH $GOPATH/bin:PATH
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
     && yum install -y php70w php70w-devel php70w-embedded
+RUN yum install -y php70w-mcrypt
 
 WORKDIR /data
 ENV GOPATH /data
